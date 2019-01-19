@@ -1,0 +1,70 @@
+﻿@model PruebaFalabella.Models.LoginModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Inicio de sesión</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/global.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="spinner">
+        <img src="~/Images/loader.svg" />
+    </div>
+
+    <div class="container mt-5">
+
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+
+                <h3 class="text-center mb-3">Inicio de sesiòn</h3>
+                <div class="js-notification"></div>
+
+                <div class="card shadow-lg">
+                    <div class="card-body">
+                        <img class="img-fluid mb-4" src="~/Images/descarga.png" />
+
+                        @using (Html.BeginForm("IniciarSesion", "Login", FormMethod.Post, new { id = "frmLogin" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.NombreUsuario)
+                                @Html.TextBoxFor(x => x.NombreUsuario, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.NombreUsuario, null, new { @class = "label-val" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Clave)
+                                @Html.PasswordFor(x => x.Clave, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Clave, null, new { @class = "label-val" })
+                            </div>
+
+                            <div class="form-group">
+                                <input class="btn btn-primary btn-block js-submit" type="submit" value="Ingresar" />
+                            </div>
+                        }
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    <script src="~/Scripts/login.js"></script>
+</body>
+</html>
