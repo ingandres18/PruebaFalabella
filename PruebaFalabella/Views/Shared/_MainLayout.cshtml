@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@RenderSection("Title", false)</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/global.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <div class="my-0 mr-md-auto font-weight-normal">
+            <img class="img-logo img-fluid" src="~/Images/descarga.png" />
+        </div>
+        <a href="@Url.RouteUrl("CerrarSesion")">Cerrar sesión</a>
+    </div>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+    
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/global.js"></script>
+</body>
+</html>
