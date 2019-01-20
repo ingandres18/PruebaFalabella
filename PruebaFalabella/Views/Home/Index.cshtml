@@ -10,22 +10,25 @@
 <div class="card-deck mb-3 text-center">
     <div class="card mb-4 shadow">
         <div class="card-body">
-            <h4 class="mb-4">Administrar proyectos</h4>
+            <h4 class="mb-4"> Compañias</h4>
             <p>
-                Haga click en el boton para ir al frontal de administración de proyectos,
-                el cual le permitira gestionar la configuración de los distintos proyectos
+                Haga click en el boton para ir al frontal de administración de compañias,
+                el cual le permitira gestionar la configuración de las distintas compañias.
             </p>
-            <a class="btn btn-lg btn-block btn-outline-success" href="#">Sign up for free</a>
+            @Html.ActionLink("Administrar Compañias", "Index", "Compania", null, new { miAtributo = "Compania", @class = "btn btn-lg btn-block btn-outline-success" })
+            @*<a class="btn btn-lg btn-block btn-outline-success" href="#">Ingresar</a>*@
         </div>
     </div>
     <div class="card mb-4 shadow">
         <div class="card-body">
-            <h4 class="mb-4">Administrar productos</h4>
+            <h4 class="mb-4"> Productos</h4>
             <p>
                 Haga click en el boton para ir al frontal de administración de productos,
-                el cual le permitira gestionar la configuración de los distintos productos
+                el cual le permitira gestionar la configuración de los distintos productos.
             </p>
-            <button type="button" class="btn btn-lg btn-block btn-outline-success">Sign up for free</button>
+            @Html.ActionLink("Administrar Productos", "Index", "Producto", null, new { miAtributo = "Producto", @class = "btn btn-lg btn-block btn-outline-success" })
+            @*@Html.ActionLink("Create New", "Create")*@
+            @*<button type="button" class="btn btn-lg btn-block btn-outline-success">Ingresar</button>*@
         </div>
     </div>
     <div class="card mb-4 shadow">
@@ -33,9 +36,35 @@
             <h4 class="mb-4">Generar ventas</h4>
             <p>
                 Haga click en el boton para ir al frontal de registro de ventas, el cual
-                le permitira registrar la información relacionada al proceso de ventas
+                le permitira registrar la información relacionada al proceso de ventas.
             </p>
-            <button type="button" class="btn btn-lg btn-block btn-outline-success">Sign up for free</button>
+            <button type="button" class="btn btn-lg btn-block btn-outline-success">Ingresar</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow">
+        <div class="card-body">
+            <h4 class="mb-4">Clientes</h4>
+            <p>
+                Haga click en el boton para ir al frontal de registro de Clientes, el cual
+                le permitira registrar la información relacionada a un cliente.
+            </p>
+            @Html.ActionLink("Administrar Clientes", "Index", "Clientes", null, new { miAtributo = "Clientes", @class = "btn btn-lg btn-block btn-outline-success" })
+            @*<button type="button" class="btn btn-lg btn-block btn-outline-success">Ingresar</button>*@
+        </div>
+    </div>
+    <div class="card mb-4 shadow">
+        <div class="card-body">
+            <h4 class="mb-4">Asesores</h4>
+            <p>
+                Haga click en el boton para ir al frontal de registro de Asesores, el cual
+                le permitira registrar la información relacionada al asesor.
+            </p>
+            @Html.ActionLink("Administrar Asesores", "Index", "Asesor", null, new { miAtributo = "Asesor", @class = "btn btn-lg btn-block btn-outline-success" })
+            @*<button type="button" class="btn btn-lg btn-block btn-outline-success">Ingresar</button>*@
         </div>
     </div>
 </div>
