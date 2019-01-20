@@ -14,6 +14,6 @@ namespace PruebaFalabella.Models
         public DbSet<Producto> Producto { get; set; }
         public DbSet<Asesor> Asesor { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
-
+        public DbSet<Venta> Venta { get; set; }
     }
 }
