@@ -1,5 +1,6 @@
 ﻿using PruebaFalabella.Models;
 using PruebaFalabella.Servicios;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -7,38 +8,52 @@ using System.Web.Mvc;
 
 namespace PruebaFalabella.Controllers
 {
-    public class GenVentasController : Controller
+    public class GenVentasController : BaseController
     {
-        private FalabellaContext db = new FalabellaContext();
         private VentasRepository ventas = new VentasRepository();
-        private AsesorRepository _asesorRepository;
+        private ProductosRepository prods = new ProductosRepository();
+        private ClienteRepository clientes = new ClienteRepository();
 
         // GET: GenVentas
         public ActionResult Index()
         {
-            _asesorRepository = new AsesorRepository();
             return View(ventas.ObtenerVentas());
+        }
+
+        private GenVenta ObtenerModelo(int? Id)
+        {
+            var objVentas = Id.HasValue ? ventas.ObtenerPorId(Id.Value) : new GenVenta();
+            objVentas.Productos = new List<SelectListItem>();
+
+            foreach (var item in prods.ObtenerProductos())
+            {
+                objVentas.Productos.Add(new SelectListItem
+                {
+                    Text = item.Descripcion,
+                    Value = item.Id.ToString()
+                });
+            }
+
+            return objVentas;
         }
 
         // GET: GenVentas/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
+            if (id.HasValue)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            GenVenta genVenta = db.GenVentas.Find(id);
+
+            GenVenta genVenta = ventas.ObtenerPorId(id.Value);
             if (genVenta == null)
-            {
                 return HttpNotFound();
-            }
+
             return View(genVenta);
         }
 
         // GET: GenVentas/Create
         public ActionResult Create()
         {
-            return View();
+            return View(ObtenerModelo(null));
         }
 
         // POST: GenVentas/Create
@@ -50,8 +65,8 @@ namespace PruebaFalabella.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.GenVentas.Add(genVenta);
-                db.SaveChanges();
+                genVenta.EmailAsesor = HttpContext.User.Identity.Name;
+                ventas.Crear(genVenta);
                 return RedirectToAction("Index");
             }
 
@@ -61,15 +76,13 @@ namespace PruebaFalabella.Controllers
         // GET: GenVentas/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
+            if (id.HasValue)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            GenVenta genVenta = db.GenVentas.Find(id);
+
+            GenVenta genVenta = ventas.ObtenerPorId(id.Value);
             if (genVenta == null)
-            {
                 return HttpNotFound();
-            }
+
             return View(genVenta);
         }
 
@@ -82,8 +95,6 @@ namespace PruebaFalabella.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(genVenta).State = EntityState.Modified;
-                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(genVenta);
@@ -92,15 +103,13 @@ namespace PruebaFalabella.Controllers
         // GET: GenVentas/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
+            if (id.HasValue)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            GenVenta genVenta = db.GenVentas.Find(id);
+
+            GenVenta genVenta = ventas.ObtenerPorId(id.Value);
             if (genVenta == null)
-            {
                 return HttpNotFound();
-            }
+
             return View(genVenta);
         }
 
@@ -109,19 +118,23 @@ namespace PruebaFalabella.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            GenVenta genVenta = db.GenVentas.Find(id);
-            db.GenVentas.Remove(genVenta);
-            db.SaveChanges();
+            ventas.Eliminar(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+        [HttpPost]
+        public JsonResult ConsultarCliente(string idCliente)
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            int id;
+            if (!int.TryParse(idCliente, out id))
+                return Json(GetAjaxModel(false, "Numero de id invalido"), JsonRequestBehavior.AllowGet);
+
+            var cliente = clientes.ObtenerPorId(int.Parse(idCliente));
+            if (cliente == null)
+                return Json(GetAjaxModel(true, ""), JsonRequestBehavior.AllowGet);
+
+            return Json(GetAjaxModel(true,
+                $"{cliente.PrimerNombre}|{cliente.SegundoNombre}|{cliente.PrimerApelldo}|{cliente.SegundoApellido}"), JsonRequestBehavior.AllowGet);
         }
     }
 }

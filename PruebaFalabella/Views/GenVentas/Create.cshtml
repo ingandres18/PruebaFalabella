@@ -7,18 +7,19 @@
 
 <h2>Agregar Nueva Venta</h2>
 
+<div class="js-notification"></div>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <hr />
 
         <div class="form-group">
             @Html.LabelFor(model => model.IdProducto, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IdProducto, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(x => x.IdProducto, Model.Productos, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdProducto, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -26,7 +27,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NoDocumento, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NoDocumento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.NoDocumento, new { htmlAttributes = new { @class = "form-control js-consulta-cliente" } })
                 @Html.ValidationMessageFor(model => model.NoDocumento, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -87,10 +88,15 @@
     </div>
 }
 
-    <div>
-        @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-link" })
-    </div>
+@using (Html.BeginForm("ConsultarCliente", "GenVentas", FormMethod.Post, new { id = "frmConsultaCliente" }))
+{
+    <input type="hidden" id="idCliente" name="idCliente" />
+}
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<div>
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-link" })
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/GenVenta.js"></script>
+}

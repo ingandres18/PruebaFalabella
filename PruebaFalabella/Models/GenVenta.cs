@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace PruebaFalabella.Models
 {
@@ -29,5 +32,10 @@ namespace PruebaFalabella.Models
 
         [Required]
         public int Valor { get; set; }
+
+
+        [DisplayName("Productos")]
+        public List<SelectListItem> Productos { get; set; }
+
     }
 }

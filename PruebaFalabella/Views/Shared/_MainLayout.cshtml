@@ -16,6 +16,9 @@
     </div>
 
     <div class="container">
+        <div class="spinner">
+            <img src="~/Images/loader.svg" />
+        </div>
         @RenderBody()
     </div>
     
@@ -25,5 +28,6 @@
     <script src="~/Scripts/popper.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/global.js"></script>
+    @RenderSection("Scripts", false)
 </body>
 </html>
