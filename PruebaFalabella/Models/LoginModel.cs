@@ -4,7 +4,7 @@ namespace PruebaFalabella.Models
 {
     public class LoginModel
     {
-        [Display(Name = "Nombre de usuario")]
+        [Display(Name = "Correo Asesor")]
         [Required(AllowEmptyStrings = true, ErrorMessage = "Este campo es requerido")]
         [MaxLength(40, ErrorMessage = "La longitud maxima es de 40")]
         public string NombreUsuario { get; set; }

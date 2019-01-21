@@ -22,7 +22,7 @@ namespace PruebaFalabella.Controllers
                 return Json(GetAjaxModel(false, "Complete todos los campos"), JsonRequestBehavior.AllowGet);
 
             if (!ValidarUsuario(model.NombreUsuario, model.Clave))
-                return Json(GetAjaxModel(false, "El usuario o la clave son invalidos"), JsonRequestBehavior.AllowGet);
+                return Json(GetAjaxModel(false, "El Correo o la clave son invalidos"), JsonRequestBehavior.AllowGet);
 
             CrearCookieAutorizacion(model.NombreUsuario);
             return Json(GetAjaxModel(true, string.Empty, Url.RouteUrl("Home")), JsonRequestBehavior.AllowGet);

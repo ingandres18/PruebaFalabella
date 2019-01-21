@@ -10,6 +10,7 @@ using PruebaFalabella.Models;
 
 namespace PruebaFalabella.Controllers
 {
+    [Authorize]
     public class CompaniaController : BaseController
     {
         private FalabellaContext db = new FalabellaContext();
