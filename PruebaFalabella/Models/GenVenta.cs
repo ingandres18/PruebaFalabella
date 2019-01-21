@@ -33,9 +33,7 @@ namespace PruebaFalabella.Models
         [Required]
         public int Valor { get; set; }
 
-
         [DisplayName("Productos")]
         public List<SelectListItem> Productos { get; set; }
-
     }
 }
