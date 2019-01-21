@@ -119,6 +119,7 @@
     <Compile Include="Controllers\CerrarSesionController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\CompaniaController.cs" />
+    <Compile Include="Controllers\GenVentasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
@@ -133,16 +134,40 @@
     <Compile Include="Migrations\201901202218570_Added_passw_to_users.Designer.cs">
       <DependentUpon>201901202218570_Added_passw_to_users.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901202251345_Includ_Documento.cs" />
+    <Compile Include="Migrations\201901202251345_Includ_Documento.Designer.cs">
+      <DependentUpon>201901202251345_Includ_Documento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901202255027_Add_RequeridoCorreo.cs" />
+    <Compile Include="Migrations\201901202255027_Add_RequeridoCorreo.Designer.cs">
+      <DependentUpon>201901202255027_Add_RequeridoCorreo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901202302494_Add_RequeridoClave.cs" />
+    <Compile Include="Migrations\201901202302494_Add_RequeridoClave.Designer.cs">
+      <DependentUpon>201901202302494_Add_RequeridoClave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901202316212_Modify_model_Asesor_Cliente.cs" />
+    <Compile Include="Migrations\201901202316212_Modify_model_Asesor_Cliente.Designer.cs">
+      <DependentUpon>201901202316212_Modify_model_Asesor_Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901202320497_Modify_LoginModel.cs" />
+    <Compile Include="Migrations\201901202320497_Modify_LoginModel.Designer.cs">
+      <DependentUpon>201901202320497_Modify_LoginModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AjaxResponseModel.cs" />
     <Compile Include="Models\Asesor.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Compania.cs" />
     <Compile Include="Models\FalabellaContext.cs" />
+    <Compile Include="Models\GenVenta.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Producto.cs" />
     <Compile Include="Models\Venta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicios\AsesorRepository.cs" />
+    <Compile Include="Servicios\ClienteRepository.cs" />
+    <Compile Include="Servicios\VentasRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -170,6 +195,11 @@
     <Content Include="Views\Clientes\Details.cshtml" />
     <Content Include="Views\Clientes\Edit.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\GenVentas\Create.cshtml" />
+    <Content Include="Views\GenVentas\Delete.cshtml" />
+    <Content Include="Views\GenVentas\Details.cshtml" />
+    <Content Include="Views\GenVentas\Edit.cshtml" />
+    <Content Include="Views\GenVentas\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -190,6 +220,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901202218570_Added_passw_to_users.resx">
       <DependentUpon>201901202218570_Added_passw_to_users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901202251345_Includ_Documento.resx">
+      <DependentUpon>201901202251345_Includ_Documento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901202255027_Add_RequeridoCorreo.resx">
+      <DependentUpon>201901202255027_Add_RequeridoCorreo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901202302494_Add_RequeridoClave.resx">
+      <DependentUpon>201901202302494_Add_RequeridoClave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901202316212_Modify_model_Asesor_Cliente.resx">
+      <DependentUpon>201901202316212_Modify_model_Asesor_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901202320497_Modify_LoginModel.resx">
+      <DependentUpon>201901202320497_Modify_LoginModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

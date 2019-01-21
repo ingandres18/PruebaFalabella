@@ -15,5 +15,7 @@ namespace PruebaFalabella.Models
         public DbSet<Asesor> Asesor { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Venta> Venta { get; set; }
+
+        public System.Data.Entity.DbSet<PruebaFalabella.Models.GenVenta> GenVentas { get; set; }
     }
 }

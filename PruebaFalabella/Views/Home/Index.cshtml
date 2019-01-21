@@ -33,12 +33,12 @@
     </div>
     <div class="card mb-4 shadow">
         <div class="card-body">
-            <h4 class="mb-4">Generar ventas</h4>
+            <h4 class="mb-4">Ventas</h4>
             <p>
                 Haga click en el boton para ir al frontal de registro de ventas, el cual
                 le permitira registrar la información relacionada al proceso de ventas.
             </p>
-            <button type="button" class="btn btn-lg btn-block btn-outline-success">Ingresar</button>
+            @Html.ActionLink("Administrar Ventas", "Index", "GenVentas", null, new { miAtributo = "Ventas", @class = "btn btn-lg btn-block btn-outline-success" })
         </div>
     </div>
 

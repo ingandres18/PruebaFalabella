@@ -1,16 +1,40 @@
-﻿@model PruebaFalabella.Models.Asesor
+﻿@model PruebaFalabella.Models.GenVenta
 
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>Eliminar Asesor</h2>
+<h2>Eliminar Venta</h2>
 
-<h3>Esta seguro que desea eliminar este asesor?</h3>
+<h3>Esta seguro que desea eliminar esta venta?</h3>
 <div>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAsesor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAsesor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoDocumento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoDocumento)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.PrimerNombre)
         </dt>
@@ -28,11 +52,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PrimerApelldo)
+            @Html.DisplayNameFor(model => model.PrimerApellido)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PrimerApelldo)
+            @Html.DisplayFor(model => model.PrimerApellido)
         </dd>
 
         <dt>
@@ -44,19 +68,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Correo)
+            @Html.DisplayNameFor(model => model.Cantidad)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Correo)
+            @Html.DisplayFor(model => model.Cantidad)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Clave)
+            @Html.DisplayNameFor(model => model.Valor)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Clave)
+            @Html.DisplayFor(model => model.Valor)
         </dd>
 
     </dl>

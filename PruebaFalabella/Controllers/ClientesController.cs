@@ -46,7 +46,7 @@ namespace PruebaFalabella.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,PrimerNombre,SegundoNombre,PrimerApelldo,SegundoApellido,Correo,FechaNacimiento")] Cliente cliente)
+        public ActionResult Create([Bind(Include = "Id,PrimerNombre,SegundoNombre,PrimerApelldo,SegundoApellido,Documento,Correo")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace PruebaFalabella.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,PrimerNombre,SegundoNombre,PrimerApelldo,SegundoApellido,Correo,FechaNacimiento")] Cliente cliente)
+        public ActionResult Edit([Bind(Include = "Id,PrimerNombre,SegundoNombre,PrimerApelldo,SegundoApellido,Documento,Correo")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {

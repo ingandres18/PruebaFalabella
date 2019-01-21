@@ -23,7 +23,11 @@ namespace PruebaFalabella.Models
         public string PrimerApelldo { get; set; }
 
         public string SegundoApellido { get; set; }
+
+        [Required]
         public string Correo { get; set; }
+
+        [Required]
         public string Clave { get; set; }
 
         public virtual ICollection<Venta> Ventas { get; set; }

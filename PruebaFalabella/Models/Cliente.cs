@@ -20,6 +20,9 @@ namespace PruebaFalabella.Models
         public string SegundoNombre { get; set; }
 
         [Required]
+        public int Documento { get; set; }
+
+        [Required]
         public string PrimerApelldo { get; set; }
 
         public string SegundoApellido { get; set; }

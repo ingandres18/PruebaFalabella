@@ -6,7 +6,7 @@ namespace PruebaFalabella.Models
     {
         [Display(Name = "Nombre de usuario")]
         [Required(AllowEmptyStrings = true, ErrorMessage = "Este campo es requerido")]
-        [MaxLength(20, ErrorMessage = "La longitud maxima es de 20")]
+        [MaxLength(40, ErrorMessage = "La longitud maxima es de 40")]
         public string NombreUsuario { get; set; }
 
         [Display(Name = "Clave del usuario")]
